@@ -162,15 +162,6 @@
             transform: translateY(-5px);
         }
 
-        #cryptoModal .modal-content {
-            border-radius: 15px;
-        }
-
-        #cryptoModal .modal-header {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
         .crypto-features {
             margin-top: 1.5rem;
         }
@@ -184,6 +175,16 @@
         .crypto-feature i {
             margin-right: 15px;
             color: var(--primary-color);
+        }
+
+        .crypto-description {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+            padding: 1rem;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            margin-top: 1rem;
         }
 
         @media (max-width: 768px) {
@@ -265,7 +266,7 @@
         <div class="container">
             <h2 class="text-center mb-5">Cas de Succès</h2>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="case-study">
                         <h3>
                             <a href="https://maps.app.goo.gl/vCvGYAy9YBNeuRrS8" 
@@ -277,7 +278,7 @@
                         <p>Entreprise en Suisse qui a atteint une excellente visibilité sur Google grâce à un profil géré stratégiquement.</p>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="case-study">
                         <h3>
                             <a href="https://g.co/kgs/eoqU9GY" 
@@ -287,6 +288,18 @@
                             </a>
                         </h3>
                         <p>Une boutique de parfums qui a vu ses interactions avec les clients augmenter après une gestion professionnelle de son profil Google.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="case-study">
+                        <h3>
+                            <a href="https://maps.app.goo.gl/ZpS9zYCi9zoLneV28" 
+                               target="_blank" 
+                               style="color: inherit; text-decoration: underline;">
+                                HLA SOLUCOES
+                            </a>
+                        </h3>
+                        <p>Entreprise dynamique qui a amélioré sa visibilité et son engagement client grâce à une stratégie Google Business ciblée.</p>
                     </div>
                 </div>
             </div>
@@ -308,47 +321,16 @@
     <!-- Crypto Payment Section -->
     <section id="crypto" class="crypto-section">
         <div class="container">
-            <h2>Commencez à accepter les paiements en crypto-monnaies. Le Futur des Transactions</h2>
-            <p class="lead mb-4">Les paiements instantanés sont la raison pour laquelle nous ne touchons même pas à votre argent</p>
-            <button class="btn-crypto" data-bs-toggle="modal" data-bs-target="#cryptoModal">
+            <h2>Solution de Paiement Crypto-Monnaie : Le Futur des Transactions</h2>
+            <p class="lead mb-4">Transformez vos transactions commerciales avec nos solutions crypto-innovantes</p>
+            <a href="https://torreswebsec.github.io/torrespay/" target="_blank" class="btn-crypto">
                 Découvrir Plus
-            </button>
-        </div>
-    </section>
-
-    <!-- Crypto Modal -->
-    <div class="modal fade" id="cryptoModal" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Solution de Paiement Crypto-Monnaie</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <p>Nous vous proposons une solution pour que vous puissiez accepter les paiements en crypto-monnaie pour votre entreprise. L’avenir des transactions financières est numérique et décentralisé.</p>
-                    
-                    <div class="crypto-features">
-                        <div class="crypto-feature">
-                            <i data-feather="check-circle"></i>
-                            <span>300+ cryptocurrencies disponibles</span>
-                        </div>
-                        <div class="crypto-feature">
-                            <i data-feather="dollar-sign"></i>
-                            <span>Retrait direct en euros sur votre compte bancaire</span>
-                        </div>
-                        <div class="crypto-feature">
-                            <i data-feather="trending-down"></i>
-                            <span>Seulement 0,5% - les frais les plus bas du marché</span>
-                        </div>
-                        <div class="crypto-feature">
-                            <i data-feather="users"></i>
-                            <span>Gestionnaire de compte personnel & support 24/7</span>
-                        </div>
-                    </div>
-                </div>
+            </a>
+            <div class="crypto-description mt-3">
+                <p>Révolutionnez votre business avec nos solutions de paiement crypto-monnaie. Acceptez des paiements modernes, sécurisés et sans frontières.</p>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
