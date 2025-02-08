@@ -1,10 +1,10 @@
-
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestion Google Business - Services Professionnels</title>
+    <title>Gestion Google Business - Solutions Professionnelles</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <style>
         :root {
@@ -29,6 +29,11 @@
             background-color: white;
         }
 
+        .sticky-top {
+            position: sticky;
+            top: 0;
+        }
+
         .navbar {
             background-color: white;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
@@ -38,6 +43,15 @@
         .navbar-brand {
             font-weight: 700;
             color: var(--primary-color);
+        }
+
+        .hero-section {
+            padding: 6rem 0;
+            background-color: #f8f9fa;
+        }
+
+        .hero-illustration {
+            text-align: center;
         }
 
         .services-section {
@@ -73,35 +87,12 @@
             transform: scale(1.2) rotate(15deg);
         }
 
-        .service-list h3 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .service-list ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-
-        .service-list ul li {
-            position: relative;
-            padding-left: 25px;
-            margin-bottom: 0.5rem;
-        }
-
-        .service-list ul li::before {
-            content: '•';
-            color: var(--primary-color);
-            position: absolute;
-            left: 0;
-        }
-
         .success-cases {
             background-color: white;
             padding: 4rem 0;
         }
 
-        .case-study {
+        .success-card {
             background-color: var(--card-bg-color);
             border-radius: 12px;
             padding: 2rem;
@@ -109,13 +100,23 @@
             transition: transform 0.3s ease;
         }
 
-        .case-study:hover {
+        .success-card:hover {
             transform: translateY(-10px);
         }
 
-        .pourquoi-section {
+        .solutions-section {
             background-color: #f8f9fa;
             padding: 4rem 0;
+            text-align: center;
+        }
+
+        .solutions-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .solutions-illustration {
+            text-align: center;
         }
 
         .contact-section {
@@ -125,7 +126,7 @@
             text-align: center;
         }
 
-        .btn-contact {
+        .btn-white {
             background-color: white;
             color: var(--primary-color);
             padding: 15px 30px;
@@ -134,351 +135,168 @@
             transition: all 0.3s ease;
         }
 
-        .btn-contact:hover {
+        .btn-white:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
-        .crypto-section {
-            background-color: #f8f9fa;
-            padding: 4rem 0;
+        .footer-content {
             text-align: center;
-        }
-
-        .crypto-section h2 {
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-        }
-
-        .crypto-section .btn-crypto {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .crypto-section .btn-crypto:hover {
-            background-color: #005bb5;
-            transform: translateY(-5px);
-        }
-
-        .crypto-features {
-            margin-top: 1.5rem;
-        }
-
-        .crypto-feature {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .crypto-feature i {
-            margin-right: 15px;
-            color: var(--primary-color);
-        }
-
-        .crypto-description {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: left;
-            padding: 1rem;
-            background-color: rgba(255,255,255,0.1);
-            border-radius: 10px;
-            margin-top: 1rem;
-        }
-
-        .reviews-section {
-            background-color: #f8f9fa;
-            padding: 4rem 0;
-            text-align: center;
-        }
-
-        .reviews-section .stars {
-            color: #ffc107;
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .reviews-section .review-card {
-            background-color: white;
-            border-radius: 15px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-        }
-
-        #cryptoModal .modal-content {
-            background-color: #f8f9fa;
-        }
-
-        #cryptoModal .modal-header {
-            border-bottom: none;
-        }
-
-        #cryptoModal .crypto-feature {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        #cryptoModal .crypto-feature i {
-            margin-right: 15px;
-            color: var(--primary-color);
-        }
-
-        @media (max-width: 768px) {
-            .services-section, .success-cases {
-                padding: 3rem 0;
-            }
         }
     </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
-            <a class="navbar-brand" href="#">Gestion Google Business</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#cas-succes">Cas de Succès</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#crypto">Crypto</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#reviews">Avis</a></li>
-                </ul>
+    <header class="fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="#">
+                    <img src="logo.svg" alt="Logo" class="logo me-3">
+                    <span class="brand-text">Gestion Google Business</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#success">Success Stories</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#solutions">Solutions</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
-    <!-- Services Section -->
-    <section id="services" class="services-section">
-        <div class="container">
-            <h2 class="text-center mb-5">Services Proposés</h2>
-            <div class="row">
-                <!-- Existing and New Services -->
-                <div class="col-md-4 mb-4">
-                    <div class="service-card">
-                        <i data-feather="settings" class="service-icon" width="50" height="50"></i>
-                        <div class="service-list">
-                            <h3>Création et Optimisation de Profil Google Business</h3>
-                            <ul>
-                                <li>Configuration initiale et personnalisation</li>
-                                <li>Choix stratégique de catégories</li>
-                                <li>Informations complètes de l'entreprise</li>
-                            </ul>
+    <main>
+        <section id="hero" class="hero-section text-center text-lg-start">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 hero-content">
+                        <h1 class="display-4 mb-4">Digital Transformation Starts Here</h1>
+                        <p class="lead mb-4">Optimize Google Business, Web Development & Innovative Digital Solutions</p>
+                        <div class="hero-cta">
+                            <a href="#services" class="btn btn-primary btn-lg px-4 me-3">Explore Services</a>
+                            <a href="#contact" class="btn btn-outline-primary btn-lg px-4">Contact Us</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="hero-illustration">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+                                <circle cx="250" cy="250" r="240" fill="#f0f4f8"/>
+                                <path d="M150,200 Q250,100 350,200 T550,200" stroke="#0073e6" fill="none" stroke-width="10"/>
+                            </svg>
                         </div>
                     </div>
                 </div>
-                
-                <!-- New Service: Développement de Sites Web -->
-                <div class="col-md-4 mb-4">
-                    <div class="service-card">
-                        <i data-feather="layout" class="service-icon" width="50" height="50"></i>
-                        <div class="service-list">
-                            <h3>Développement de Sites Web</h3>
-                            <ul>
-                                <li>Conception de sites web sur mesure</li>
-                                <li>Sites responsive et adaptatifs</li>
-                                <li>Optimisation SEO</li>
-                                <li>Design moderne et fonctionnel</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- New Service: Solutions de Paiement -->
-                <div class="col-md-4 mb-4">
-                    <div class="service-card">
-                        <i data-feather="credit-card" class="service-icon" width="50" height="50"></i>
-                        <div class="service-list">
-                            <h3>Solutions de Paiement Complètes</h3>
-                            <ul>
-                                <li>Paiements physiques et en ligne</li>
-                                <li>Intégration de systèmes de paiement</li>
-                                <li>Solutions de paiement modernes</li>
-                                <li>Support pour paiements traditionnels et crypto</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- New Service: Services Internet -->
-                <div class="col-md-4 mb-4">
-                    <div class="service-card">
-                        <i data-feather="wifi" class="service-icon" width="50" height="50"></i>
-                        <div class="service-list">
-                            <h3>Services Internet Professionnels</h3>
-                            <ul>
-                                <li>Installation de réseaux</li>
-                                <li>Solutions de connectivité</li>
-                                <li>Sécurité réseau avancée</li>
-                                <li>Support technique continu</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Additional existing services... -->
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Success Cases Section -->
-    <section id="cas-succes" class="success-cases">
-        <div class="container">
-            <h2 class="text-center mb-5">Cas de Succès</h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="case-study">
-                        <h3>
-                            <a href="https://maps.app.goo.gl/vCvGYAy9YBNeuRrS8" 
-                               target="_blank" 
-                               style="color: inherit; text-decoration: underline;">
-                                Banobu.ch
-                            </a>
-                        </h3>
-                        <p>Entreprise en Suisse qui a atteint une excellente visibilité sur Google grâce à un profil géré stratégiquement.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="case-study">
-                        <h3>
-                            <a href="https://g.co/kgs/eoqU9GY" 
-                               target="_blank" 
-                               style="color: inherit; text-decoration: underline;">
-                                Junger Parfums
-                            </a>
-                        </h3>
-                        <p>Une boutique de parfums qui a vu ses interactions avec les clients augmenter après une gestion professionnelle de son profil Google.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="case-study">
-                        <h3>
-                            <a href="https://maps.app.goo.gl/ZpS9zYCi9zoLneV28" 
-                               target="_blank" 
-                               style="color: inherit; text-decoration: underline;">
-                                HLA SOLUCOES
-                            </a>
-                        </h3>
-                        <p>Entreprise dynamique qui a amélioré sa visibilité et son engagement client grâce à une stratégie Google Business ciblée.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Reviews Section -->
-    <section class="reviews-section" id="reviews">
-        <div class="container">
-            <h2>Nos Avis Google</h2>
-            <div class="stars">
-                ★★★★★
-            </div>
-            <p>Découvrez ce que nos clients disent de nos services</p>
-            <a href="https://g.page/r/CUX3R21kn8jpEBI/review" target="_blank" class="btn btn-primary mt-3">
-                Voir nos Avis Google
-            </a>
-        </div>
-    </section>
-
-    <!-- Pourquoi Choisir Mes Services Section -->
-    <section class="pourquoi-section">
-        <div class="container">
-            <h2 class="text-center mb-5">Pourquoi Choisir Mes Services ?</h2>
-            <div class="row">
-                <div class="col-12 text-center">
-                    <p>En tant que Développeur Web, Designer et Programmeur, j'apporte une approche technique et créative pour résoudre les défis numériques de votre entreprise. Mon objectif est de fournir des stratégies complètes et personnalisées qui fonctionnent réellement pour votre entreprise.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Crypto Payment Section -->
-    <section id="crypto" class="crypto-section">
-        <div class="container">
-            <h2>Solution de Paiement Crypto-Monnaie : Le Futur des Transactions</h2>
-            <p class="lead mb-4">Transformez vos transactions commerciales avec nos solutions crypto-innovantes</p>
-            <a href="https://torreswebsec.github.io/torrespay/" target="_blank" class="btn btn-primary">
-                Découvrir Plus
-            </a>
-        </div>
-    </section>
-
-    <!-- Crypto Payment Modal -->
-    <div class="modal fade" id="cryptoModal" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Solution de Paiement Crypto-Monnaie</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <h3>Le Futur des Transactions</h3>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="crypto-feature">
-                                <i data-feather="check-circle"></i>
-                                <span>300+ cryptocurrencies disponibles</span>
+        <section id="services" class="services-section">
+            <div class="container">
+                <h2 class="text-center mb-5 section-title">Our Professional Services</h2>
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="service-card">
+                            <div class="service-icon mb-3">
+                                <i data-feather="globe" width="50" height="50"></i>
                             </div>
-                            <div class="crypto-feature">
-                                <i data-feather="credit-card"></i>
-                                <span>Retrait direct en euros sur votre compte bancaire</span>
-                            </div>
-                            <div class="crypto-feature">
-                                <i data-feather="trending-down"></i>
-                                <span>Frais de seulement 0.5% - les plus bas du marché</span>
-                            </div>
-                            <div class="crypto-feature">
-                                <i data-feather="headphones"></i>
-                                <span>Gestionnaire de compte personnel & support 24/7</span>
-                            </div>
+                            <h3 class="mb-3">Web Development</h3>
+                            <p>Create modern, responsive websites tailored to your business needs.</p>
                         </div>
-                        <div class="col-md-6">
-                            <img src="https://via.placeholder.com/300x200.png?text=Crypto+Payment" class="img-fluid" alt="Crypto Payment">
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="service-card">
+                            <div class="service-icon mb-3">
+                                <i data-feather="map-pin" width="50" height="50"></i>
+                            </div>
+                            <h3 class="mb-3">Google Business Optimization</h3>
+                            <p>Maximize local visibility and attract more customers through strategic Google Business management.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="service-card">
+                            <div class="service-icon mb-3">
+                                <i data-feather="credit-card" width="50" height="50"></i>
+                            </div>
+                            <h3 class="mb-3">Payment Solutions</h3>
+                            <p>Integrate modern online and offline payment systems, including cryptocurrency options.</p>
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <a href="https://torreswebsec.github.io/torrespay/" target="_blank" class="btn btn-primary">
-                        Découvrir TorresPay
-                    </a>
+            </div>
+        </section>
+
+        <section id="success" class="success-cases">
+            <div class="container">
+                <h2 class="text-center mb-5 section-title">Success Stories</h2>
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="success-card">
+                            <h3 class="mb-3">Banobu.ch</h3>
+                            <p>Swiss enterprise achieving excellent Google visibility.</p>
+                            <a href="https://maps.app.goo.gl/vCvGYAy9YBNeuRrS8" target="_blank" class="btn btn-outline-primary">View Profile</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="success-card">
+                            <h3 class="mb-3">Junger Parfums</h3>
+                            <p>Significant increase in customer interactions via Google Business.</p>
+                            <a href="https://g.co/kgs/eoqU9GY" target="_blank" class="btn btn-outline-primary">View Profile</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="success-card">
+                            <h3 class="mb-3">HLA Soluções</h3>
+                            <p>Enhanced customer engagement and online presence.</p>
+                            <a href="https://maps.app.goo.gl/ZpS9zYCi9zoLneV28" target="_blank" class="btn btn-outline-primary">View Profile</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <h2 class="mb-4">Transformez votre Présence Numérique</h2>
-            <p class="lead mb-4">Prêt à propulser votre entreprise au prochain niveau ?</p>
-            <a href="tel:+41772607064" class="btn btn-contact">Contactez-moi</a>
-        </div>
-    </section>
+        <section id="solutions" class="solutions-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <h2 class="mb-4">Innovative Payment Solutions</h2>
+                        <p class="lead mb-4">Transform your business transactions with cutting-edge digital payment technologies.</p>
+                        <a href="https://torreswebsec.github.io/torrespay/" target="_blank" class="btn btn-primary">Discover TorresPay</a>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="solutions-illustration">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+                                <path d="M200,50 Q250,150 200,250" stroke="#0073e6" fill="none" stroke-width="8"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <!-- Footer -->
-    <footer class="bg-white py-4">
+        <section id="contact" class="contact-section text-center">
+            <div class="container">
+                <h2 class="mb-4">Ready to Elevate Your Business?</h2>
+                <p class="lead mb-4">Let's discuss how we can transform your digital presence.</p>
+                <a href="tel:+41772607064" class="btn btn-white btn-lg">Contact Now</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-4">
         <div class="container text-center">
-            <p>
+            <p class="mb-2">
                 <a href="https://g.page/r/CUX3R21kn8jpEBI/review" target="_blank">
                     Av. Henri-Golay 38, 1219 Châtelaine, Switzerland ➜
                 </a>
             </p>
-            <p class="mt-2">
-                &copy; 2025 Gestion Google Business - Torreswebsec 
-                <span style="margin-left: 10px;">🇨🇭</span>
-                Tous droits réservés.
-            </p>
+            <p class="text-muted">&copy; 2025 Gestion Google Business - Torreswebsec 🇨🇭 All Rights Reserved.</p>
         </div>
     </footer>
 
-    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             feather.replace();
