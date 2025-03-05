@@ -1,18 +1,18 @@
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Felipe Torres - Digital Solutions</title>
+    <title>Felipe Torres Technology - Digital Innovation</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <style>
         :root {
-            --primary-color: #0073e6;
+            --primary-color: #1E88E5;
             --secondary-color: #4CAF50;
-            --text-color: #333;
-            --background-color: #f4f4f4;
+            --text-color: #212121;
+            --background-color: #f5f5f5;
             --card-bg-color: #ffffff;
-            --card-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            --tech-gradient: linear-gradient(135deg, #1E88E5 0%, #6A1B9A 100%);
         }
 
         * {
@@ -25,165 +25,100 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             line-height: 1.6;
             color: var(--text-color);
-            background-color: white;
-        }
-
-        .sticky-top {
-            position: sticky;
-            top: 0;
+            background-color: var(--background-color);
         }
 
         .navbar {
-            background-color: white;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            background: var(--tech-gradient);
+            color: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
         }
 
         .navbar-brand {
             font-weight: 700;
-            color: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
         }
 
         .hero-section {
+            background: var(--tech-gradient);
+            color: white;
             padding: 6rem 0;
-            background-color: #f8f9fa;
+            position: relative;
+            overflow: hidden;
         }
 
-        .hero-illustration {
-            text-align: center;
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at top right, rgba(255,255,255,0.2), transparent 50%);
         }
 
         .services-section {
             padding: 6rem 0;
-            background-color: #f8f9fa;
+            background-color: white;
         }
 
         .service-card {
-            background-color: var(--card-bg-color);
+            background-color: var(--background-color);
             border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
             padding: 2rem;
             margin-bottom: 2rem;
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             transition: all 0.4s ease;
-            transform-style: preserve-3d;
-            perspective: 1000px;
+            border: 1px solid rgba(30, 136, 229, 0.1);
         }
 
         .service-card:hover {
-            transform: translateY(-10px) rotateX(-5deg);
-            box-shadow: var(--card-shadow);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
         }
 
         .service-icon {
             color: var(--primary-color);
             margin-bottom: 1rem;
-            transition: all 0.4s ease;
-        }
-
-        .service-card:hover .service-icon {
-            transform: scale(1.2) rotate(15deg);
-        }
-
-        .success-cases {
-            background-color: white;
-            padding: 4rem 0;
-        }
-
-        .success-card {
-            background-color: var(--card-bg-color);
-            border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            transition: transform 0.3s ease;
-        }
-
-        .success-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .solutions-section {
-            background-color: #f8f9fa;
-            padding: 4rem 0;
-            text-align: center;
-        }
-
-        .solutions-section h2 {
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-        }
-
-        .solutions-illustration {
-            text-align: center;
         }
 
         .contact-section {
-            background-color: var(--primary-color);
+            background-color: var(--text-color);
             color: white;
             padding: 4rem 0;
             text-align: center;
         }
 
-        .btn-white {
-            background-color: white;
-            color: var(--primary-color);
-            padding: 15px 30px;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .btn-white:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-
-        .footer-content {
+        footer {
+            background-color: #f8f9fa;
+            padding: 2rem 0;
             text-align: center;
         }
 
-        footer {
-            background-color: white;
-            padding: 20px 0;
-            border-top: 1px solid #e7e7e7;
-        }
-
-        footer a {
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        footer a:hover {
-            color: var(--secondary-color);
-            text-decoration: underline;
-        }
-        
         .navbar-brand .logo {
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-        .navbar-brand .logo:hover {
-            transform: scale(1.1);
-        }
-        .brand-text {
-            font-weight: 700;
+            margin-right: 10px;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
             color: var(--primary-color);
-            margin-left: 10px;
         }
     </style>
 </head>
 <body>
     <header class="fixed-top">
-        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container">
-                <a class="navbar-brand d-flex align-items-center" href="#">
-                    <img src="logo.svg" alt="Felipe Torres Logo" class="logo">
-                    <span class="brand-text">Felipe Torres</span>
+                <a class="navbar-brand" href="#">
+                    <div class="logo">FT</div>
+                    Felipe Torres Technology
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
@@ -204,18 +139,18 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-6 hero-content">
-                        <h1 class="display-4 mb-4">Digital Transformation Starts Here</h1>
-                        <p class="lead mb-4">Optimize Google Business, Web Development & Innovative Digital Solutions</p>
+                        <h1 class="display-4 mb-4">Digital Transformation Through Technology</h1>
+                        <p class="lead mb-4">Empowering businesses with innovative digital solutions and strategic technological insights.</p>
                         <div class="hero-cta">
-                            <a href="#services" class="btn btn-primary btn-lg px-4 me-3">Explore Services</a>
-                            <a href="#contact" class="btn btn-outline-primary btn-lg px-4">Contact Us</a>
+                            <a href="#services" class="btn btn-light btn-lg px-4 me-3">Explore Services</a>
+                            <a href="#contact" class="btn btn-outline-light btn-lg px-4">Contact Us</a>
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <div class="hero-illustration">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
-                                <circle cx="250" cy="250" r="240" fill="#f0f4f8"/>
-                                <path d="M150,200 Q250,100 350,200 T550,200" stroke="#0073e6" fill="none" stroke-width="10"/>
+                        <div class="hero-illustration text-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" style="max-width: 100%; height: auto;">
+                                <circle cx="250" cy="250" r="240" fill="rgba(255,255,255,0.1)"/>
+                                <path d="M150,200 Q250,100 350,200 T550,200" stroke="white" fill="none" stroke-width="10" opacity="0.5"/>
                             </svg>
                         </div>
                     </div>
@@ -239,38 +174,47 @@
                     <div class="col-md-4 mb-4">
                         <div class="service-card">
                             <div class="service-icon mb-3">
-                                <i data-feather="map-pin" width="50" height="50"></i>
+                                <i data-feather="trending-up" width="50" height="50"></i>
                             </div>
-                            <h3 class="mb-3">Google Business Optimization</h3>
-                            <p>Maximize local visibility and attract more customers through strategic Google Business management.</p>
+                            <h3 class="mb-3">Business Digital Presence</h3>
+                            <p>Optimize your online visibility with professional Google Business management, high-quality media production, and strategic digital marketing.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="service-card">
+                            <div class="service-icon mb-3">
+                                <i data-feather="settings" width="50" height="50"></i>
+                            </div>
+                            <h3 class="mb-3">Digital Automation</h3>
+                            <p>Custom automation solutions to streamline your business processes and enhance operational efficiency.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="success" class="success-cases">
+        <section id="success" class="success-cases bg-light">
             <div class="container">
                 <h2 class="text-center mb-5 section-title">Success Stories</h2>
                 <div class="row">
                     <div class="col-md-4 mb-4">
-                        <div class="success-card">
+                        <div class="service-card">
                             <h3 class="mb-3">Banobu.ch</h3>
-                            <p>Swiss enterprise achieving excellent Google visibility.</p>
+                            <p>Swiss enterprise achieving excellent digital visibility.</p>
                             <a href="https://maps.app.goo.gl/vCvGYAy9YBNeuRrS8" target="_blank" class="btn btn-outline-primary">View Profile</a>
                         </div>
                     </div>
                     <div class="col-md-4 mb-4">
-                        <div class="success-card">
+                        <div class="service-card">
                             <h3 class="mb-3">Junger Parfums</h3>
-                            <p>Significant increase in customer interactions via Google Business.</p>
+                            <p>Significant increase in customer interactions and online presence.</p>
                             <a href="https://g.co/kgs/eoqU9GY" target="_blank" class="btn btn-outline-primary">View Profile</a>
                         </div>
                     </div>
                     <div class="col-md-4 mb-4">
-                        <div class="success-card">
+                        <div class="service-card">
                             <h3 class="mb-3">HLA Soluções</h3>
-                            <p>Enhanced customer engagement and online presence.</p>
+                            <p>Enhanced digital engagement and strategic online marketing.</p>
                             <a href="https://maps.app.goo.gl/ZpS9zYCi9zoLneV28" target="_blank" class="btn btn-outline-primary">View Profile</a>
                         </div>
                     </div>
@@ -278,23 +222,18 @@
             </div>
         </section>
 
-        <section id="contact" class="contact-section text-center">
+        <section id="contact" class="contact-section">
             <div class="container">
-                <h2 class="mb-4">Ready to Elevate Your Business?</h2>
-                <p class="lead mb-4">Let's discuss how we can transform your digital presence.</p>
-                <a href="tel:+41772607064" class="btn btn-white btn-lg">Contact Now</a>
+                <h2 class="mb-4">Ready to Transform Your Digital Strategy?</h2>
+                <p class="lead mb-4">Let's innovate and elevate your business technology.</p>
+                <a href="tel:+41772607064" class="btn btn-light btn-lg">Contact Us</a>
             </div>
         </section>
     </main>
 
     <footer>
-        <div class="container text-center">
-            <p class="mb-2">
-                <a href="https://g.page/r/CUX3R21kn8jpEBI/review" target="_blank">
-                    Av. Henri-Golay 38, 1219 Châtelaine, Switzerland ➜
-                </a>
-            </p>
-            <p class="text-muted">&copy; 2025 Gestion Google Business - Torreswebsec 🇨🇭 Tous droits réservés.</p>
+        <div class="container">
+            <p class="text-muted">&copy; 2025 Felipe Torres Technology - CH Switzerland ➜</p>
         </div>
     </footer>
 
@@ -303,7 +242,6 @@
         document.addEventListener('DOMContentLoaded', () => {
             feather.replace();
 
-            // Smooth scrolling
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
@@ -311,16 +249,6 @@
                         behavior: 'smooth'
                     });
                 });
-            });
-
-            // Navbar Scroll Effect
-            const navbar = document.querySelector('.navbar');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    navbar.classList.add('shadow-sm');
-                } else {
-                    navbar.classList.remove('shadow-sm');
-                }
             });
         });
     </script>
